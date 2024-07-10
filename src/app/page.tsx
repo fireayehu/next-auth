@@ -1,7 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { getServerAuthSession } from "@/lib/config/auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerAuthSession();
+  console.log("SESSION", session);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
